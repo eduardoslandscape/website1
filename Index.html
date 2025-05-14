@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Eduardo's Landscape & Irrigation LLC</title>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Raleway:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+   <style>
+       /* Keeping all existing styles */
+       :root {
+           --primary-color: #3c495b;
+           --secondary-color: #50627a;
+           --accent-color: #ffe98a;
+           --text-light: #ffffff;
+           --text-accent: #fff3bd;
+           --highlight: #ffdf57;
+           --light-bg: rgba(255, 255, 255, 0.95);
+       }
+
+
+       * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+       }
+       .nav-container {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.logo {
+    height: 50px;
+    margin-right: 2rem;
+}
+       body {
+           font-family: 'Raleway', sans-serif;
+           line-height: 1.6;
+           color: var(--text-color);
+           background-color: #f5f5f5;
+       }
+
+
+       /* Enhanced Navigation Styles */
+       nav {
+           background-color: rgba(60, 73, 91, 0.95);
+           backdrop-filter: blur(10px);
+           padding: 1rem;
+           position: fixed;
+           width: 100%;
+           top: 0;
+           z-index: 1000;
+           box-shadow: 0 2px 20px rgba(0,0,0,0.2);
+       }
+
+
+       nav ul {
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           list-style: none;
+           gap: 3rem;
+           max-width: 1200px;
+           margin: 0 auto;
+           padding: 0;
+           width: 100%;
+       }
+
+
+       nav li {
+           display: inline-block;
+       }
+
+
+       nav a {
+           color: white;
+           text-decoration: none;
+           font-family: 'Cinzel', serif;
+           font-weight: 600;
+           font-size: 1.1rem;
+           padding: 0.5rem 1rem;
+           border-radius: 25px;
+           transition: all 0.3s ease;
+           white-space: nowrap;
+       }
+
+
+       nav a::after {
+           content: '';
+           position: absolute;
+           width: 0;
+           height: 2px;
+           bottom: -5px;
+           left: 50%;
+           background-color: var(--accent-color);
+           transition: all 0.3s ease;
+           transform: translateX(-50%);
+       }
+
+
+       nav a:hover::after {
+           width: 80%;
+       }
+
+
+       nav a.active {
+           color: var(--accent-color);
+           background-color: rgba(255, 255, 255, 0.1);
+       }
+
+
+       /* Section Styles */
+       .section {
+           min-height: 100vh;
+           padding-top: 80px;
+           background-attachment: fixed;
+           background-size: cover;
+           background-position: center;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           position: relative;
+       }
+
+
+       /* Background Images for Each Section */
+       #home {
+           background-image: linear-gradient(rgba(60, 73, 91, 0.7), rgba(60, 73, 91, 0.7)),
+               url('https://images.pexels.com/photos/7061663/pexels-photo-7061663.jpeg');
+           background-position: center;
+           background-size: cover;
+       }
+
+
+       #services {
+           background-image: linear-gradient(rgba(60, 73, 91, 0.7), rgba(60, 73, 91, 0.7)),
+               url('https://images.pexels.com/photos/4946918/pexels-photo-4946918.jpeg');
+           background-position: center;
+           background-size: cover;
+       }
+
+
+       #customers {
+           background-image: linear-gradient(rgba(60, 73, 91, 0.7), rgba(60, 73, 91, 0.7)),
+               url('https://images.pexels.com/photos/280229/pexels-photo-280229.jpeg');
+           background-position: center;
+           background-size: cover;
+       }
+
+
+       #about {
+           background-image: linear-gradient(rgba(60, 73, 91, 0.7), rgba(60, 73, 91, 0.7)),
+               url('https://images.pexels.com/photos/1416572/pexels-photo-1416572.jpeg');
+           background-position: center;
+           background-size: cover;
+       }
+
+
+       #contact {
+           background-image: linear-gradient(rgba(60, 73, 91, 0.7), rgba(60, 73, 91, 0.7)),
+               url('https://images.pexels.com/photos/2827336/pexels-photo-2827336.jpeg');
+           background-position: center;
+           background-size: cover;
+       }
+
+
+       /* Enhanced Hero Content */
+       .hero-content {
+           text-align: center;
+           padding: 6rem 2rem;
+           background: rgba(0, 0, 0, 0.7);
+           border-radius: 15px;
+           backdrop-filter: blur(10px);
+           margin: 2rem auto;
+           max-width: 1200px;
+           border: 1px solid rgba(255, 255, 255, 0.1);
+       }
+
+
+       .hero-title {
+           color: white;
+           font-family: 'Cinzel', serif;
+           font-size: 5rem;
+           font-weight: 800;
+           text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+           margin-bottom: 2rem;
+           letter-spacing: 2px;
+       }
+
+
+       .hero-subtitle {
+           color: var(--accent-color);
+           font-family: 'Playfair Display', serif;
+           font-size: 2rem;
+           font-weight: 600;
+           text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+       }
+
+
+       /* Enhanced Service Cards */
+       .services-grid {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 2rem;
+           padding: 2rem;
+           max-width: 1400px;
+           margin: 0 auto;
+       }
+
+
+       .service-card {
+           background: var(--light-bg);
+           padding: 2.5rem;
+           border-radius: 15px;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+           transition: all 0.4s ease;
+           position: relative;
+           overflow: hidden;
+           border: 1px solid rgba(255, 255, 255, 0.2);
+       }
+
+
+       .service-card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+           background: white;
+       }
+
+
+       .service-icon {
+           font-size: 3.5rem;
+           color: var(--primary-color);
+           margin-bottom: 1.5rem;
+           transition: all 0.4s ease;
+       }
+
+
+       /* Enhanced Customer Cards */
+       .target-markets {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+           gap: 2rem;
+           padding: 2rem;
+           max-width: 1400px;
+           margin: 0 auto;
+       }
+
+
+       .market-card {
+           background: var(--light-bg);
+           padding: 3rem 2rem;
+           border-radius: 15px;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+           transition: all 0.4s ease;
+           text-align: center;
+           position: relative;
+           overflow: hidden;
+       }
+
+
+       .market-card:hover {
+           transform: translateY(-10px);
+           box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+           background: white;
+       }
+
+
+       .market-icon {
+           font-size: 3rem;
+           color: var(--primary-color);
+           margin-bottom: 1.5rem;
+       }
+
+
+       /* Enhanced About Section */
+       .owner-section {
+           background: var(--light-bg);
+           padding: 4rem;
+           border-radius: 20px;
+           max-width: 1200px;
+           margin: 2rem auto;
+           box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+       }
+
+
+       .owner-image {
+           width: 300px;
+           height: 300px;
+           border-radius: 50%;
+           object-fit: cover;
+           margin: 2rem auto;
+           display: block;
+           box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+           border: 5px solid white;
+       }
+       
+
+
+       /* Enhanced Contact Form */
+       .contact-form {
+           background: var(--light-bg);
+           max-width: 800px;
+           margin: 2rem auto;
+           padding: 4rem;
+           border-radius: 20px;
+           box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+       }
+
+
+       .form-group {
+           margin-bottom: 2rem;
+       }
+
+
+       .form-group label {
+           display: block;
+           margin-bottom: 0.8rem;
+           font-weight: 600;
+           color: var(--primary-color);
+           font-size: 1.1rem;
+       }
+
+
+       .form-group input,
+       .form-group textarea {
+           width: 100%;
+           padding: 1rem;
+           border: 2px solid #ddd;
+           border-radius: 10px;
+           font-size: 1rem;
+           transition: all 0.3s ease;
+       }
+
+
+       .form-group textarea {
+           min-height: 150px;
+           resize: vertical;
+       }
+
+
+       button {
+           background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+           color: white;
+           padding: 1rem 2.5rem;
+           border: none;
+           border-radius: 30px;
+           font-size: 1.1rem;
+           cursor: pointer;
+           transition: all 0.3s ease;
+           text-transform: uppercase;
+           letter-spacing: 1px;
+       }
+
+
+       button:hover {
+           transform: translateY(-3px);
+           box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+       }
+
+
+       .section-title {
+           color: white;
+           font-family: 'Cinzel', serif;
+           font-size: 3.5rem;
+           text-align: center;
+           margin-bottom: 3rem;
+           text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+       }
+
+
+       /* Smooth Scrolling */
+       html {
+           scroll-behavior: smooth;
+       }
+
+
+       body {
+           scroll-snap-type: y mandatory;
+       }
+
+
+       .section {
+           scroll-snap-align: start;
+           scroll-snap-stop: always;
+       }
+
+
+       /* Responsive Design */
+       @media (max-width: 768px) {
+           .hero-title {
+               font-size: 3rem;
+           }
+           nav ul {
+               gap: 1rem;
+           }
+           .owner-section {
+               padding: 2rem;
+           }
+           .contact-form {
+               padding: 2rem;
+           }
+       }
+   </style>
+</head>
+<body>
+    <nav>
+    <div class="nav-container">
+        <img src="no_padding.png" Eduardo's Landscape & Irrigation LLC Logo" class="logo">
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#customers">Customers</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+</nav>
+
+   <!-- Home Section -->
+   <section id="home" class="section" style="background-color: #3c495b;">
+       <div class="hero-content" style="background: rgba(60, 73, 91, 0.95);">
+           <h1 class="hero-title" style="color: #ffffff;">Eduardo's Landscape & Irrigation LLC</h1>
+           <p class="hero-subtitle" style="color: #ffe98a;">Professional Outdoor Solutions</p>
+       </div>
+   </section>
+
+
+   <!-- Services Section -->
+   <section id="services" class="section">
+       <h2 class="section-title">Our Services</h2>
+       <div class="services-grid">
+           <div class="service-card">
+               <i class="fas fa-tint service-icon"></i>
+               <h3>Irrigation Systems</h3>
+               <p>Professional installation and maintenance of efficient irrigation systems. We ensure your landscape receives the perfect amount of water year-round.</p>
+           </div>
+          
+           <div class="service-card">
+               <i class="fas fa-water service-icon"></i>
+               <h3>French Drains</h3>
+               <p>Expert drainage solutions to protect your property from water damage. We design and install systems that effectively manage water flow.</p>
+           </div>
+          
+           <div class="service-card">
+               <i class="fas fa-leaf service-icon"></i>
+               <h3>Landscaping</h3>
+               <p>Complete landscape design and maintenance services. Transform your outdoor space with our expert landscaping solutions.</p>
+           </div>
+          
+           <div class="service-card">
+               <i class="fas fa-border-all service-icon"></i>
+               <h3>Hardscaping</h3>
+               <p>Custom patios, walkways, and retaining walls built to last. We create beautiful and functional outdoor living spaces.</p>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Customers Section -->
+   <section id="customers" class="section">
+       <h2 class="section-title">Who We Serve</h2>
+       <div class="target-markets">
+           <div class="market-card">
+               <i class="fas fa-building market-icon"></i>
+               <h3>Multi-Family Properties</h3>
+               <p>Comprehensive landscaping and irrigation solutions for apartment complexes and multi-family residences. We understand the unique needs of shared spaces and high-traffic areas.</p>
+           </div>
+
+
+           <div class="market-card">
+               <i class="fas fa-city market-icon"></i>
+               <h3>Property Developers</h3>
+               <p>Partner with us for new construction and development projects. We provide expert planning, installation, and maintenance services to enhance property value.</p>
+           </div>
+
+
+           <div class="market-card">
+               <i class="fas fa-home market-icon"></i>
+               <h3>Homeowners</h3>
+               <p>Transform your residential property with custom landscaping solutions. From irrigation systems to complete yard makeovers, we bring your vision to life.</p>
+           </div>
+
+
+           <div class="market-card">
+               <i class="fas fa-users market-icon"></i>
+               <h3>HOA Communities</h3>
+               <p>Specialized services for community areas and shared spaces. We work with HOAs to maintain beautiful, sustainable landscapes that residents love.</p>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- About Section -->
+   <section id="about" class="section">
+       <h2 class="section-title">About Our Owner</h2>
+       <div class="owner-section">
+           <img src="IMG_0610.jpg" alt="Jose Moreno" class="owner-image">
+           <div class="owner-text" style="text-align: center; max-width: 800px; margin: 0 auto;">
+               <p style="margin-bottom: 2rem;">Meet Jose Moreno, the driving force behind Eduardo's Landscape & Irrigation. With over three decades of hands-on experience in the landscaping and irrigation industry, Jose has built a reputation for excellence and reliability in both residential and commercial projects.</p>
+              
+               <p style="margin-bottom: 2rem;">Starting from humble beginnings, Jose has dedicated his career to mastering every aspect of landscape construction and irrigation systems. His extensive knowledge spans from complex drainage solutions to innovative irrigation designs, ensuring that each project receives the benefit of his years of expertise.</p>
+              
+               <p style="margin-bottom: 2rem;">Under Jose's leadership, our team has successfully completed countless projects, transforming ordinary spaces into beautiful, functional landscapes that our clients love. His commitment to quality workmanship and customer satisfaction has made Eduardo's Landscape & Irrigation a trusted name in the industry.</p>
+           </div>
+       </div>
+   </section>
+
+
+   <!-- Contact Section -->
+   <section id="contact" class="section">
+       <h2 class="section-title">Contact Us</h2>
+       <div class="contact-form">
+           <form action="mailto:jose@eduardoslandscape.com" method="POST" enctype="text/plain">
+               <div class="form-group">
+                   <label for="name">Name:</label>
+                   <input type="text" id="name" name="name" required>
+               </div>
+               <div class="form-group">
+                   <label for="email">Email:</label>
+                   <input type="email" id="email" name="email" required>
+               </div>
+               <div class="form-group">
+                   <label for="phone">Phone:</label>
+                   <input type="tel" id="phone" name="phone" required>
+               </div>
+               <div class="form-group">
+                   <label for="service">Service Interested In:</label>
+                   <select id="service" name="service" required>
+                       <option value="">Select a Service</option>
+                       <option value="irrigation">Irrigation Systems</option>
+                       <option value="drainage">French Drains</option>
+                       <option value="landscaping">Landscaping</option>
+                       <option value="hardscaping">Hardscaping</option>
+                   </select>
+               </div>
+               <div class="form-group">
+                   <label for="message">Message:</label>
+                   <textarea id="message" name="message" required></textarea>
+               </div>
+               <button type="submit">Send Message</button>
+           </form>
+          
+           <div class="contact-info" style="margin-top: 2rem; text-align: center;">
+               <h3 style="color: var(--primary-color); margin-bottom: 1rem;">Business Hours</h3>
+               <p><i class="fas fa-clock"></i> Monday - Saturday, 8:00 AM - 6:00 PM</p>
+               <p><i class="fas fa-map-marker-alt"></i> Serving the DFW Area</p>
+           </div>
+       </div>
+   </section>
+
+
+   <script>
+       document.addEventListener('DOMContentLoaded', function() {
+           // Enhanced smooth scrolling
+           document.querySelectorAll('nav a').forEach(anchor => {
+               anchor.addEventListener('click', function(e) {
+                   e.preventDefault();
+                   const targetId = this.getAttribute('href');
+                   const targetElement = document.querySelector(targetId);
+                   const navHeight = document.querySelector('nav').offsetHeight;
+                   const targetPosition = targetElement.offsetTop - navHeight;
+
+
+                   window.scrollTo({
+                       top: targetPosition,
+                       behavior: 'smooth'
+                   });
+               });
+           });
+
+
+           // Enhanced active section detection
+           const observerOptions = {
+               root: null,
+               rootMargin: '-50% 0px',
+               threshold: 0
+           };
+
+
+           const observer = new IntersectionObserver((entries) => {
+               entries.forEach(entry => {
+                   if (entry.isIntersecting) {
+                       // Update navigation
+                       document.querySelectorAll('nav a').forEach(link => {
+                           link.classList.remove('active');
+                           if (link.getAttribute('href') === '#' + entry.target.id) {
+                               link.classList.add('active');
+                           }
+                       });
+                   }
+               });
+           }, observerOptions);
+
+
+           // Observe all sections
+           document.querySelectorAll('section').forEach(section => {
+               observer.observe(section);
+           });
+
+
+           // Handle initial active state
+           const currentSection = document.querySelector('section');
+           if (currentSection) {
+               const correspondingLink = document.querySelector(`nav a[href="#${currentSection.id}"]`);
+               if (correspondingLink) {
+                   correspondingLink.classList.add('active');
+               }
+           }
+       });
+   </script>
+</body>
+</html>
